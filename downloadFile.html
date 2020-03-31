@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+      
+      function downloadFile() {
+        var content = <?= FILE.getDownloadData(); ?>;
+        var blob = new Blob([ content ], { "type" : "text/csv"});
+        document.getElementById("downloadFile").href = window.URL.createObjectURL(blob);
+      }
+
+    </script>
+  </head>
+  <body>
+  
+      <!-- ファイルダウンロードリンク -->
+      <a id="downloadFile" href="#" download="download.csv" onclick="downloadFile()">ダウンロード</a>
+      <br>
+      <br>
+  
+  </body>
+</html>
+
+
